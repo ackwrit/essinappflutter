@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "212386922156",
+    "project_id": "espin-5f29a",
+    "storage_bucket": "espin-5f29a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212386922156:android:faeca42e18c998d5012909",
+        "android_client_info": {
+          "package_name": "com.example.firstappesin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ9rNVYgKw2hnkjGHqpoXq9Zt6eM0o1CM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
