@@ -22,11 +22,13 @@ class MyApp extends StatelessWidget {
           )
       ),
       darkTheme: ThemeData.dark().copyWith(
+
         appBarTheme: const AppBarTheme(
           systemOverlayStyle:  SystemUiOverlayStyle(
             statusBarBrightness: Brightness.dark
           )
         )
+
       ),
       home: const LandinPageView(),
       debugShowCheckedModeBanner: false,
