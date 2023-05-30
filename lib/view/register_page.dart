@@ -1,3 +1,4 @@
+import 'package:firstappesin/controller/my_animation.dart';
 import 'package:firstappesin/view/background_view.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,11 @@ class RegitserView extends StatefulWidget {
 }
 
 class _RegitserViewState extends State<RegitserView> {
+  //variables
+  TextEditingController mail = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController nom = TextEditingController();
+  TextEditingController prenom = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,67 +38,88 @@ class _RegitserViewState extends State<RegitserView> {
       padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
-          TextField(
+          MyAnimation(
+            time: 1,
+            child: TextField(
+              controller: nom,
 
-            decoration: InputDecoration(
-              hintText: "Entrer votre nom",
+              decoration: InputDecoration(
+                hintText: "Entrer votre nom",
 
-
-              border: OutlineInputBorder(
-
-                borderRadius: BorderRadius.circular(15),
-              )
-            ),
-          ),
-          const SizedBox(height: 10,),
-
-          TextField(
-            decoration: InputDecoration(
-                hintText: "Entrer votre prénom",
 
                 border: OutlineInputBorder(
 
                   borderRadius: BorderRadius.circular(15),
                 )
+              ),
+            ),
+          ),
+          const SizedBox(height: 10,),
+
+          MyAnimation(
+            time: 2,
+            child: TextField(
+              controller: prenom,
+              decoration: InputDecoration(
+                  hintText: "Entrer votre prénom",
+
+                  border: OutlineInputBorder(
+
+                    borderRadius: BorderRadius.circular(15),
+                  )
+              ),
             ),
           ),
           const SizedBox(height: 10,),
 
 
-          TextField(
-            decoration: InputDecoration(
-                hintText: "Entrer votre mail",
+          MyAnimation(
+            time: 3,
+            child: TextField(
+              controller: mail,
+              decoration: InputDecoration(
+                  hintText: "Entrer votre mail",
 
-                border: OutlineInputBorder(
+                  border: OutlineInputBorder(
 
-                  borderRadius: BorderRadius.circular(15),
-                )
+                    borderRadius: BorderRadius.circular(15),
+                  )
+              ),
             ),
           ),
           const SizedBox(height: 10),
 
 
-          TextField(
-            decoration: InputDecoration(
-                hintText: "Entrer votre password",
+          MyAnimation(
+            time: 4,
+            child: TextField(
+              obscureText: true,
+              controller: password,
+              decoration: InputDecoration(
+                  hintText: "Entrer votre password",
 
-                border: OutlineInputBorder(
+                  border: OutlineInputBorder(
 
-                  borderRadius: BorderRadius.circular(15),
-                )
+                    borderRadius: BorderRadius.circular(15),
+                  )
+              ),
             ),
           ),
           const SizedBox(height: 10,),
 
-          ElevatedButton(
-             style: ElevatedButton.styleFrom(
-               backgroundColor: Colors.purple,
-               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
-             ),
-              onPressed: (){
-                print("me connecter à la base de donnée");
-              },
-              child: const Text("Inscription")
+          MyAnimation(
+            time: 5,
+            child: ElevatedButton(
+               style: ElevatedButton.styleFrom(
+                 backgroundColor: Colors.purple,
+                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
+               ),
+                onPressed: (){
+                  print("me connecter à la base de donnée");
+                  print(mail.text);
+                },
+                child: const Text("Inscription")
+            ),
           )
         ],
       ),
