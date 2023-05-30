@@ -14,12 +14,7 @@ class _BackgroundViewState extends State<BackgroundView> {
     return ClipPath(
       clipper: CustomPath(),
       child: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/samurai.jpg"),
-            fit: BoxFit.fill
-          )
-        ),
+        color: Colors.purple,
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
       ),

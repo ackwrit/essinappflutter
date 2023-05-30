@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:firstappesin/view/background_view.dart';
+import 'package:firstappesin/view/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -114,6 +115,11 @@ class _LandinPageViewState extends State<LandinPageView> {
                     ElevatedButton(onPressed: (){
                       if(positionDot == 2){
                         //aller sur la nouvelle page
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context){
+                              return RegitserView();
+                            }
+                        ));
                       }
                       else {
                         setState(() {
