@@ -15,6 +15,7 @@ class _RegitserViewState extends State<RegitserView> {
   TextEditingController password = TextEditingController();
   TextEditingController nom = TextEditingController();
   TextEditingController prenom = TextEditingController();
+  bool isRegister = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +28,7 @@ class _RegitserViewState extends State<RegitserView> {
       body: Stack(
         children: [
           const BackgroundView(),
+
           SafeArea(child: bodyPage()),
         ],
       ),
@@ -38,13 +40,32 @@ class _RegitserViewState extends State<RegitserView> {
       padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
-          MyAnimation(
+         Row(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: [
+             const Text("Connexion"),
+             Switch.adaptive(
+                 value: isRegister,
+                 onChanged: (value){
+                   setState(() {
+                     isRegister = value;
+                   });
+
+                 }
+             ),
+             const Text("Inscription"),
+           ],
+         ),
+          (isRegister)?MyAnimation(
             time: 1,
             child: TextField(
               controller: nom,
 
               decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
                 hintText: "Entrer votre nom",
+
 
 
                 border: OutlineInputBorder(
@@ -53,14 +74,16 @@ class _RegitserViewState extends State<RegitserView> {
                 )
               ),
             ),
-          ),
+          ):const SizedBox(),
           const SizedBox(height: 10,),
 
-          MyAnimation(
+          (isRegister)?MyAnimation(
             time: 2,
             child: TextField(
               controller: prenom,
               decoration: InputDecoration(
+                filled: true,
+                  fillColor: Colors.white,
                   hintText: "Entrer votre prénom",
 
                   border: OutlineInputBorder(
@@ -69,7 +92,7 @@ class _RegitserViewState extends State<RegitserView> {
                   )
               ),
             ),
-          ),
+          ):const SizedBox(),
           const SizedBox(height: 10,),
 
 
@@ -79,6 +102,8 @@ class _RegitserViewState extends State<RegitserView> {
               controller: mail,
               decoration: InputDecoration(
                   hintText: "Entrer votre mail",
+                  filled: true,
+                  fillColor: Colors.white,
 
                   border: OutlineInputBorder(
 
@@ -97,6 +122,8 @@ class _RegitserViewState extends State<RegitserView> {
               controller: password,
               decoration: InputDecoration(
                   hintText: "Entrer votre password",
+                  filled: true,
+                  fillColor: Colors.white,
 
                   border: OutlineInputBorder(
 
@@ -118,7 +145,7 @@ class _RegitserViewState extends State<RegitserView> {
                   print("me connecter à la base de donnée");
                   print(mail.text);
                 },
-                child: const Text("Inscription")
+                child: Text(isRegister?"Inscription":"Connexion")
             ),
           )
         ],

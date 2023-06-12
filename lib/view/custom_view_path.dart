@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 
 class CustomPath extends CustomClipper<Path>{
+  final double progress;
+  CustomPath(this.progress);
   @override
   Path getClip(Size size) {
     // TODO: implement getClip
@@ -14,9 +16,9 @@ class CustomPath extends CustomClipper<Path>{
   }
 
   @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+  bool shouldReclip(CustomPath oldClipper) {
     // TODO: implement shouldReclip
-    return true;
+    return oldClipper.progress != progress;
   }
 
 }

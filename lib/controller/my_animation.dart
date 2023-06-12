@@ -28,7 +28,7 @@ class _MyAnimationState extends State<MyAnimation> with SingleTickerProviderStat
       begin: const Offset(20,0),
       end: Offset.zero,
     ).animate(curvedAnimation);
-    Timer(Duration(seconds: widget.time), () {
+    Timer(Duration(milliseconds: widget.time * 500), () {
       _controller.forward();
     });
   }
