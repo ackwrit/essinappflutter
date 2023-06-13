@@ -27,6 +27,10 @@ class FirestoreHelper{
 
 
   //méthode connexion
+  Future connect(String email, String password) async{
+    UserCredential resultat = await auth.signInWithEmailAndPassword(email: email, password: password);
+
+  }
 
 
   //methode mise à jour utilisateur
