@@ -1,3 +1,4 @@
+import 'package:firstappesin/controller/firestoreHelper.dart';
 import 'package:firstappesin/controller/my_animation.dart';
 import 'package:firstappesin/view/background_view.dart';
 import 'package:flutter/material.dart';
@@ -142,8 +143,15 @@ class _RegitserViewState extends State<RegitserView> {
                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
                ),
                 onPressed: (){
-                  print("me connecter à la base de donnée");
-                  print(mail.text);
+                  if(isRegister){
+                    //je m'inscris
+                    FirestoreHelper().inscription(prenom.text, nom.text, mail.text, password.text);
+                  }
+                  else
+                    {
+                      //je me connecte
+
+                    }
                 },
                 child: Text(isRegister?"Inscription":"Connexion")
             ),
