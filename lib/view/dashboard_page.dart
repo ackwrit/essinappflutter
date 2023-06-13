@@ -21,9 +21,14 @@ class _DashBoardState extends State<DashBoard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
-              radius: 60,
-              backgroundImage: NetworkImage(moi.avatar?? defaultImage),
+            InkWell(
+              onTap: (){
+                //afficher les photos
+              },
+              child: CircleAvatar(
+                radius: 60,
+                backgroundImage: NetworkImage(moi.avatar?? defaultImage),
+              ),
             ),
             Text(moi.email),
             Text(moi.name),
