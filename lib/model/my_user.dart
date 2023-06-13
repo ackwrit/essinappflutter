@@ -1,5 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firstappesin/globale.dart';
 
 class MyUser {
   late String uid;
@@ -39,7 +40,7 @@ class MyUser {
       }
     String? provisoireAvatar = map["AVATAR"];
     if(provisoireAvatar == null){
-        avatar = "";
+        avatar = defaultImage;
     }
     else
       {
