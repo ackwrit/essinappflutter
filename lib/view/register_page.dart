@@ -1,6 +1,8 @@
 import 'package:firstappesin/controller/firestoreHelper.dart';
 import 'package:firstappesin/controller/my_animation.dart';
+import 'package:firstappesin/globale.dart';
 import 'package:firstappesin/view/background_view.dart';
+import 'package:firstappesin/view/dashboard_page.dart';
 import 'package:flutter/material.dart';
 
 class RegitserView extends StatefulWidget {
@@ -145,12 +147,43 @@ class _RegitserViewState extends State<RegitserView> {
                 onPressed: (){
                   if(isRegister){
                     //je m'inscris
-                    FirestoreHelper().inscription(prenom.text, nom.text, mail.text, password.text);
+                    FirestoreHelper().inscription(prenom.text, nom.text, mail.text, password.text)
+                        .then((value){
+                          //si la fonction se déroule bien
+                      setState(() {
+                        moi = value;
+                      });
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context){
+                            return const DashBoard();
+                          }
+                      ));
+
+                    })
+                        .catchError((onError){
+                          // dans le cas d'une erreur
+
+                      //afficher popUP
+
+                    });
                   }
                   else
                     {
                       //je me connecte
-                      FirestoreHelper().connect(mail.text, password.text);
+                      FirestoreHelper().connect(mail.text, password.text)
+                          .then((value) {
+                            setState(() {
+                              moi = value;
+                            });
+                            Navigator.push(context, MaterialPageRoute(
+                                builder: (context){
+                                  return const DashBoard();
+                                }
+                            ));
+                      })
+                          .catchError((onError){
+
+                      });
 
                     }
                 },
