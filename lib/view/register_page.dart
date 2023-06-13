@@ -150,6 +150,7 @@ class _RegitserViewState extends State<RegitserView> {
                   else
                     {
                       //je me connecte
+                      FirestoreHelper().connect(mail.text, password.text);
 
                     }
                 },
