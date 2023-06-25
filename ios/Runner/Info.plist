@@ -7,6 +7,10 @@
 
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Mon application souhaite accéder à vos  photos</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>L'application souhaite accéder à votre localisation</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>L'application souhaite accéder à votre localisation</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

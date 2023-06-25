@@ -12,6 +12,11 @@ class MyUser {
   String? avatar;
 
 
+
+  String get fullNmane {
+    return name + " " + lastName;
+  }
+
   //Constructeur
   MyUser(){
     uid = "";

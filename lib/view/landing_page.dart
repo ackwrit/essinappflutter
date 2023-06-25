@@ -91,6 +91,10 @@ class _LandinPageViewState extends State<LandinPageView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            backgroundColor: Colors.purple
+                        ),
                         onPressed: (){
                           setState(() {
                             if(positionDot == 0){
@@ -112,7 +116,12 @@ class _LandinPageViewState extends State<LandinPageView> {
                         dotsCount: 3,
 
                     ),
-                    ElevatedButton(onPressed: (){
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        backgroundColor: Colors.purple
+                      ),
+                        onPressed: (){
                       if(positionDot == 2){
                         //aller sur la nouvelle page
                         Navigator.push(context, MaterialPageRoute(
