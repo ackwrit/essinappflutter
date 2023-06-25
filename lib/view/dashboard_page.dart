@@ -1,4 +1,5 @@
 import 'package:file_picker/file_picker.dart';
+import 'package:firstappesin/controller/List_Personne_View.dart';
 import 'package:firstappesin/controller/Maps_controller.dart';
 import 'package:firstappesin/controller/paiment_controller.dart';
 import 'package:firstappesin/globale.dart';
@@ -162,7 +163,7 @@ class _DashBoardState extends State<DashBoard> {
 
   Widget PresentationView(){
     switch(index){
-      case 0 : return Center(child: Text("Personnes"),);
+      case 0 : return const ListViewPerson();
       case 1 : return const Center(
         child: MapsController(),
       );

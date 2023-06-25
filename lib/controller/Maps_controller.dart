@@ -1,4 +1,8 @@
+import 'package:firstappesin/controller/MapsViewController.dart';
+import 'package:firstappesin/controller/NoDataMapsController.dart';
+import 'package:firstappesin/controller/firestoreHelper.dart';
 import 'package:firstappesin/controller/location_permission.dart';
+import 'package:firstappesin/globale.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -10,6 +14,7 @@ class MapsController extends StatefulWidget {
 }
 
 class _MapsControllerState extends State<MapsController> {
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Position>(
@@ -17,13 +22,11 @@ class _MapsControllerState extends State<MapsController> {
         builder: (context,snap){
             if(snap.hasData){
               Position position = snap.data!;
-              print(position.latitude);
-              print(position.longitude);
-              return Text("Afficher la carte");
+              return MapsViewController(gps: position);
             }
             else
               {
-                return Text("ne pas Afficher la carte");
+                return const NoDataMapsController();
               }
         }
     );

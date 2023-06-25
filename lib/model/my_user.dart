@@ -1,6 +1,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firstappesin/globale.dart';
+import 'package:geolocator/geolocator.dart';
 
 class MyUser {
   late String uid;
@@ -10,6 +11,7 @@ class MyUser {
   late String email;
   DateTime? birthday;
   String? avatar;
+  GeoPoint? gps;
 
 
 
@@ -50,6 +52,18 @@ class MyUser {
     else
       {
         avatar = provisoireAvatar;
+      }
+
+    var gpsProvisoire = map["GPS"];
+    if(gpsProvisoire == null){
+      print(gpsProvisoire.runtimeType);
+
+      gpsProvisoire = GeoPoint(0, 0);
+    }
+    else
+      {
+        print(gpsProvisoire.runtimeType);
+        gps = gpsProvisoire;
       }
   }
 
