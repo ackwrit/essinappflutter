@@ -39,6 +39,7 @@ class _DashBoardState extends State<DashBoard> {
 
               TextButton(
                   onPressed: (){
+                    //mettre à jour les images
 
                   },
                   child: const Text("OUI")
@@ -112,6 +113,10 @@ class _DashBoardState extends State<DashBoard> {
                 ),
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                  shape: const StadiumBorder(),
+                ),
                   onPressed: (){
                     controller.makePayment(amount: '24', currency: 'EUR');
                     Navigator.pop(context);
