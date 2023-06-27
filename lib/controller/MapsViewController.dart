@@ -33,7 +33,12 @@ class _MapsViewControllerState extends State<MapsViewController> {
   @override
   Widget build(BuildContext context) {
     return  GoogleMap(
-      onMapCreated: (controller){
+      myLocationButtonEnabled: true,
+      myLocationEnabled: true,
+
+      onMapCreated: (controller) async {
+        String newStyle = await DefaultAssetBundle.of(context).loadString("lib/mapStyle.json");
+        controller.setMapStyle(newStyle);
         mapController.complete(controller);
       },
         initialCameraPosition: cameraPositionInit,

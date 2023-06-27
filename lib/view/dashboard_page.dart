@@ -1,6 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:firstappesin/controller/List_Personne_View.dart';
 import 'package:firstappesin/controller/Maps_controller.dart';
+import 'package:firstappesin/controller/favorisController.dart';
 import 'package:firstappesin/controller/firestoreHelper.dart';
 import 'package:firstappesin/controller/paiment_controller.dart';
 import 'package:firstappesin/globale.dart';
@@ -185,7 +186,7 @@ class _DashBoardState extends State<DashBoard> {
       case 1 : return const Center(
         child: MapsController(),
       );
-      case 2 : return Center(child: Text("Favoris"),);
+      case 2 : return const FavorisController();
       default: return Center(child: Text("Erreur"),);
     }
   }

@@ -12,6 +12,7 @@ class MyUser {
   DateTime? birthday;
   String? avatar;
   GeoPoint? gps;
+  List? favoris;
 
 
 
@@ -64,6 +65,14 @@ class MyUser {
       {
         print(gpsProvisoire.runtimeType);
         gps = gpsProvisoire;
+      }
+    List? provisoireTableau = map["FAVORIS"];
+    if(provisoireTableau == null){
+      favoris = [];
+    }
+    else
+      {
+        favoris = provisoireTableau;
       }
   }
 
