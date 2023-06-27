@@ -47,6 +47,7 @@ dependencies:
   flutter_stripe: ^9.2.2
   get:
   http:
+  google_maps_flutter:
 
 dev_dependencies:
   flutter_test:
