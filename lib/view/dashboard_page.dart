@@ -1,6 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:firstappesin/controller/List_Personne_View.dart';
 import 'package:firstappesin/controller/Maps_controller.dart';
+import 'package:firstappesin/controller/firestoreHelper.dart';
 import 'package:firstappesin/controller/paiment_controller.dart';
 import 'package:firstappesin/globale.dart';
 import 'package:firstappesin/view/background_view.dart';
@@ -40,6 +41,18 @@ class _DashBoardState extends State<DashBoard> {
               TextButton(
                   onPressed: (){
                     //mettre à jour les images
+                    FirestoreHelper().stockageImage("Images/${moi.uid}", nameImage!, bytesImage!).then((value){
+                       urlImage = value;
+                       setState(() {
+                         moi.avatar = urlImage;
+                       });
+                       Map<String,dynamic> map  = {
+                         "AVATAR":urlImage
+                       };
+                       FirestoreHelper().updateUser(moi.uid, map);
+                       Navigator.pop(context);
+                    });
+
 
                   },
                   child: const Text("OUI")
